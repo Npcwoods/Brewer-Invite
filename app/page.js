@@ -229,11 +229,17 @@ export default function Page() {
               View Baby Registry <ExternalLink size={16} />
             </a>
             
-            <button 
+            <button
               onClick={() => {
-                navigator.clipboard.writeText(DATA.registryLink);
-                setCopied(true);
-                setTimeout(() => setCopied(false), 2000);
+                navigator.clipboard.writeText(DATA.registryLink)
+                  .then(() => {
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  })
+                  .catch((err) => {
+                    console.error('Failed to copy to clipboard:', err);
+                    alert('Failed to copy link. Please copy manually: ' + DATA.registryLink);
+                  });
               }}
               className="w-full bg-white border border-slate-200 text-slate-600 py-3 rounded-xl text-sm font-medium hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
             >
@@ -302,13 +308,18 @@ function ShareButton({ text }: { text: string }) {
         console.log('Error sharing', err);
       }
     } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      } catch (err) {
+        console.error('Failed to copy to clipboard:', err);
+        alert('Failed to copy link. Please copy manually: ' + window.location.href);
+      }
     }
   };
 
   return (
-    <button 
+    <button
       onClick={handleShare}
       className="bg-slate-100 text-slate-700 py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 hover:bg-slate-200 transition-colors"
     >
