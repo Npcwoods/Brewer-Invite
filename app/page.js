@@ -277,7 +277,8 @@ export default function Page() {
 
 // --- SUB-COMPONENTS ---
 
-function DetailRow({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) {  return (
+function DetailRow({ icon, title, children }) {
+  return (
     <div className="flex gap-4 items-start">
       <div className="mt-1 p-2 bg-white shadow-sm border border-slate-100 rounded-lg">
         {icon}
@@ -294,7 +295,7 @@ function Divider() {
   return <div className="w-full h-px bg-slate-100 my-8"></div>;
 }
 
-function ShareButton({ text }: { text: string }) {
+function ShareButton({ text }) {
   const handleShare = async () => {
     if (navigator.share) {
       try {
