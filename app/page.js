@@ -24,7 +24,7 @@ const DATA = {
   mapLink: "https://www.google.com/maps/search/?api=1&query=Union+County+Community+Center+129+Union+Co+Rec+Rd+Blairsville+GA+30512",
   registryLink: "https://my.babylist.com/babybrewwoods",
   inviteMessage: "Please join us as we celebrate the upcoming arrival of our little one. We are beyond excited to share this special day with you and can’t wait to see you there! Mailed invitations to follow! 🥰",
-  rsvpEmail: "meganwoods@example.com", // Fallback for RSVP
+  rsvpEmail: "meganlowe3697@gmail.com", // Fallback for RSVP
   shareText: "You’re invited to Megan Woods’ Baby Shower! 💙 Tap to open the invite: "
 };
 
